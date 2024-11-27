@@ -2,20 +2,24 @@ name: Deploy to AWS Lambda
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+    branches: 
+      - main
 jobs:
-  deploy:
+  deploy_lambda:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Lambda
         uses: appleboy/lambda-action@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          function-name: test-lambda-function
-          zip-file: test-deployment.zip
+          node-version: 20.17
+          # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          # function-name: test-lambda-function
+          # zip-file: test-deployment.zip
           region: ap-south-1
+      - name: npm install
+        env:
+          CI: true
+        run:
+          npm ci
 
