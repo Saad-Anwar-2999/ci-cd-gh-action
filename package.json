@@ -2,9 +2,9 @@
   "name": "docker",
   "version": "1.0.0",
   "type": "module",
-  "main": "handler.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node handler.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
