@@ -1,23 +1,15 @@
-export const handler = async (event) => {
-  // Extract request details (if needed) from the event object
-  const { httpMethod, path, body } = event;
-  // Basic routing logic 
-  if (httpMethod === 'GET' && path === '/') {
-    return {
-      statusCode: 200,
-      headers: {
-        'Content-Type': 'text/plain',
-      },
-      body: 'Hello Lambda From Gh-action App!',
-    };
-  }
+// src/index.js (ES Modules)
+import express from 'express';
+import serverless from 'serverless-http';  // Import serverless-http
 
-  // Handle unsupported routes
-  return {
-    statusCode: 404,
-    headers: {
-      'Content-Type': 'text/plain',
-    },
-    body: 'Not Found',
-  };
-};
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello from Lambda!');
+});
+
+// Wrap the app with serverless-http for Lambda compatibility
+const handler = serverless(app);
+
+// Export the handler function for Lambda
+export { handler };

@@ -1,16 +1,17 @@
 {
   "name": "docker",
   "version": "1.0.0",
-  "main": "src/index.js",
   "type": "module",
+  "main": "handler.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node handler.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "serverless-http": "^3.2.0"
   }
 }
