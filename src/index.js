@@ -2,7 +2,7 @@ export const handler = async (event) => {
   // Extract request details (if needed) from the event object
   const { httpMethod, path, body } = event;
 
-  // Basic routing logic
+  // Basic routing logic 
   if (httpMethod === 'GET' && path === '/') {
     return {
       statusCode: 200,
