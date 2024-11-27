@@ -37,3 +37,4 @@ jobs:
           aws_region: ap-south-1
           function_name: gh-action-project
           zip_file: ci-cd-gh-action-main.zip
+          handler: src/index.handler
