@@ -4,7 +4,7 @@ const http = require('http');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello Docker App!');
+  res.send('Hello Lamda From Gh-action App!');
 });
 
 const server = http.createServer(app);
