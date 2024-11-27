@@ -1,13 +1,24 @@
-const express = require('express');
-const http = require('http');
+export const handler = async (event) => {
+  // Extract request details (if needed) from the event object
+  const { httpMethod, path, body } = event;
 
-const app = express();
+  // Basic routing logic
+  if (httpMethod === 'GET' && path === '/') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: 'Hello Lambda From Gh-action App!',
+    };
+  }
 
-app.get('/', (req, res) => {
-  res.send('Hello Lamda From Gh-action App!');
-});
-
-const server = http.createServer(app);
-server.listen(3000, () => {
-  console.log('Server running at http://localhost:3000/');
-});
+  // Handle unsupported routes
+  return {
+    statusCode: 404,
+    headers: {
+      'Content-Type': 'text/plain',
+    },
+    body: 'Not Found',
+  };
+};
