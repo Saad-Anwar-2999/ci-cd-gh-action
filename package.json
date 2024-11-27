@@ -2,9 +2,9 @@
   "name": "docker",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "index.cjs",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.cjs"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,9 @@
   "dependencies": {
     "express": "^4.21.1",
     "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "serverless": "^3.26.1",
+    "serverless-offline": "^8.3.0"
   }
 }
