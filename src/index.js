@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
   res.send('Hello from Lambda!');
 });
 
-// Wrap the app with serverless-http for Lambda compatibility
+// Wrap the Express app with serverless-http to make it Lambda-compatible
 const handler = serverless(app);
 
 // Export the handler function for Lambda
